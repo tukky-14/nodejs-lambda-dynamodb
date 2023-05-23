@@ -10,6 +10,8 @@ exports.handler = async (event) => {
         year: event.year,
         month_and_day: event.month_and_day,
         diary: event.diary,
+        created_at: event.create_at,
+        updated_at: event.updated_at,
     };
 
     // DynamoDBにデータを登録
