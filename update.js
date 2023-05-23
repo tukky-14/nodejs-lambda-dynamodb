@@ -11,7 +11,7 @@ exports.handler = async (event) => {
         month_and_day: event.month_and_day, // テーブルがパーティションキーとソートキーの組み合わせの場合、ソートキーも指定する
     };
 
-    // 更新する項目と値
+    // 更新する項目と値（set [更新するカラム] = [更新後の値]）
     const updateExpression = 'set #diary = :newDiary';
     const expressionAttributeValues = {
         ':newDiary': event.diary,
@@ -28,6 +28,12 @@ exports.handler = async (event) => {
         ExpressionAttributeValues: expressionAttributeValues,
         ExpressionAttributeNames: expressionAttributeNames,
         ReturnValues: 'ALL_NEW',
+        // ■ ReturnValues
+        // NONE: 更新操作後に何も返さないことを指定します。
+        // ALL_OLD: 更新操作前のアイテムの属性を返します。
+        // UPDATED_OLD: 更新操作前のアイテムの属性のうち、更新された属性のみを返します。
+        // ALL_NEW: 更新操作後のアイテムの属性を返します。
+        // UPDATED_NEW: 更新操作後のアイテムの属性のうち、更新された属性のみを返します。
     };
 
     try {
