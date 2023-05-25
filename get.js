@@ -24,3 +24,9 @@ exports.handler = async (event) => {
         return { statusCode: 500, body: 'Error' };
     }
 };
+
+// 想定するデータ（event）
+// {
+//     "year": "2023",
+//     "month_day": "0401",
+// }

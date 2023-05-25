@@ -29,3 +29,12 @@ exports.handler = async (event) => {
         return { statusCode: 500, body: 'Error' };
     }
 };
+
+// 想定するデータ（event）
+// {
+//     "year": "2023",
+//     "month_day": "0401",
+//     "diary": "晴れだった。",
+//     "created_at": 20230401000000,
+//     "updated_at": 20230401000000
+// }

@@ -39,21 +39,21 @@ exports.handler = async (events, context) => {
 // [
 //     {
 //       "year": "2023",
-//       "month_and_day": "0401",
+//       "month_day": "0401",
 //       "diary": "晴れだった。",
 //       "created_at": 20230401000000,
 //       "updated_at": 20230401000000
 //     },
 //     {
 //       "year": "2023",
-//       "month_and_day": "0402",
+//       "month_day": "0402",
 //       "diary": "雨だった。",
 //       "created_at": 20230402000000,
 //       "updated_at": 20230402000000
 //     },
 //     {
 //       "year": "2023",
-//       "month_and_day": "0403",
+//       "month_day": "0403",
 //       "diary": "曇りだった。",
 //       "created_at": 20230403000000,
 //       "updated_at": 20230403000000

@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
         TableName: tableName,
         KeyConditionExpression: 'pk = :pk',
         ExpressionAttributeValues: {
-            ':pk': '2023',
+            ':pk': event.year,
         },
     };
 
@@ -24,3 +24,8 @@ exports.handler = async (event, context) => {
         throw err;
     }
 };
+
+// 想定するデータ（event）
+// {
+//     "year": "2023",
+// }
