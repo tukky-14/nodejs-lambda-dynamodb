@@ -7,10 +7,10 @@ exports.handler = async (event) => {
 
     // 登録するデータ
     const item = {
-        year: event.year,
-        month_and_day: event.month_and_day,
+        pk: event.year,
+        sk: event.month_day,
         diary: event.diary,
-        created_at: event.create_at,
+        created_at: event.created_at,
         updated_at: event.updated_at,
     };
 

@@ -11,8 +11,8 @@ exports.handler = async (events, context) => {
             [tableName]: events.map((item) => ({
                 PutRequest: {
                     Item: {
-                        year: { S: item.year },
-                        month_and_day: { S: item.month_and_day },
+                        pk: { S: item.year },
+                        sk: { S: item.month_day },
                         diary: { S: item.diary },
                         created_at: { N: item.created_at.toString() },
                         updated_at: { N: item.updated_at.toString() },

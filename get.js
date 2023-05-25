@@ -9,8 +9,8 @@ exports.handler = async (event) => {
     const params = {
         TableName: tableName,
         Key: {
-            year: event.year,
-            month_and_day: event.month_and_day, // テーブルがパーティションキーとソートキーの組み合わせの場合、ソートキーも指定する
+            pk: event.year,
+            sk: event.month_day, // テーブルがパーティションキーとソートキーの組み合わせの場合、ソートキーも指定する
         },
     };
 

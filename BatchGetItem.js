@@ -10,8 +10,8 @@ exports.handler = async (events, context) => {
         RequestItems: {
             [tableName]: {
                 Keys: events.map((key) => ({
-                    year: { S: key.year },
-                    month_and_day: { S: key.month_and_day },
+                    pk: { S: key.year },
+                    sk: { S: key.month_day },
                 })),
             },
         },
