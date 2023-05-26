@@ -8,9 +8,10 @@ exports.handler = async (event, context) => {
     // Queryパラメータの設定
     const params = {
         TableName: tableName,
-        KeyConditionExpression: 'pk = :pk',
+        KeyConditionExpression: 'pk = :pk and sk > :sk',
         ExpressionAttributeValues: {
             ':pk': event.year,
+            ':sk': event.monthday,
         },
     };
 
@@ -28,4 +29,33 @@ exports.handler = async (event, context) => {
 // 想定するデータ（event）
 // {
 //     "year": "2023",
+//     "monthday": "0402"
+// }
+
+// ■ パーティションキーのみを指定する場合：
+// KeyConditionExpression: 'pk = :pk',
+// ExpressionAttributeValues: {
+//   ':pk': event.yea}
+// }
+
+// ■ パーティションキーとソートキーの等しい条件を指定する場合：
+// KeyConditionExpression: 'pk = :pk and sk = :sk',
+// ExpressionAttributeValues: {
+//   ':pk': event.year,
+//   ':sk': event.monthday
+// }
+
+// ■ パーティションキーの等しい条件とソートキーの範囲条件を指定する場合：
+// KeyConditionExpression: 'pk = :pk and sk between :startValue and :endValue',
+// ExpressionAttributeValues: {
+//   ':pk': event.year,
+//   ':startValue': event.monthday,
+//   ':endValue': event.monthday
+// }
+
+// ■ パーティションキーの等しい条件とソートキーの比較条件を指定する場合：
+// KeyConditionExpression: 'pk = :pk and sk > :sk',
+// ExpressionAttributeValues: {
+//   ':pk': event.year,
+//   ':sk': event.monthday
 // }
